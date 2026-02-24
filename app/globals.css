@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f8f6f2;
+  --text: #1f2321;
+  --accent: #b89b5e;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 12% 6%, rgba(184, 155, 94, 0.12), transparent 33%),
+    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.26), transparent 42%);
+}
+
+::selection {
+  background: rgba(184, 155, 94, 0.22);
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
