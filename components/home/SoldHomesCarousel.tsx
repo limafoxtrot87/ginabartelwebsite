@@ -30,7 +30,7 @@ export function SoldHomesCarousel() {
       return p >= activeFilter.min && p <= activeFilter.max;
     });
     return raw.length > 0 ? raw : soldHomes;
-  }, [filterIndex, activeFilter]);
+  }, [activeFilter]);
 
   const safeIndex = index >= filtered.length ? 0 : index;
   const current = filtered[safeIndex];
