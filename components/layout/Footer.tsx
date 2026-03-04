@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SocialEmblems } from "@/components/shared/SocialEmblems";
 
 const navLinks = [
+  { label: "Listings", href: "/listings" },
   { label: "About", href: "/about" },
   { label: "Service Areas", href: "/service-areas" },
   { label: "Sold Homes", href: "/sold-homes" },

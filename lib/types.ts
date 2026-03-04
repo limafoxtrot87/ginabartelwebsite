@@ -41,3 +41,37 @@ export type SocialLink = {
   label: string;
   href: string;
 };
+
+export type ActiveListing = {
+  slug: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  price: string;
+  priceRaw: number;
+  beds: number;
+  baths: number;
+  sqft: number;
+  lotSqft?: number;
+  yearBuilt?: number;
+  hoaMonthly?: number;
+  type: string;
+  mlsNumber: string;
+  listedDate: string;
+  daysOnMarket: number;
+  status: "Active" | "Pending" | "Coming Soon";
+  heroImage: string;
+  photos: string[];
+  highlights: string[];
+  description: string;
+  features: {
+    interior: string[];
+    outdoor: string[];
+    community: string[];
+  };
+  pricePerSqft: number;
+  loanTypes: string[];
+  community?: string;
+  virtualTourUrl?: string;
+};

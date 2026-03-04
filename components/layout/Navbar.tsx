@@ -5,12 +5,13 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/", label: "Home" },
+  { href: "/listings", label: "Listings", highlight: true },
   { href: "/about", label: "About Gina" },
   { href: "/military-families", label: "Military Families" },
   { href: "/awards", label: "Awards" },
   { href: "/service-areas", label: "Service Areas" },
   { href: "/sold-homes", label: "Sold Homes" },
-  { href: "/neighborhoods", label: "Explore Tampa!" },
+  { href: "/neighborhoods", label: "Explore Tampa" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -27,8 +28,19 @@ export function Navbar() {
           {links.map((link) => {
             const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
-              <Link key={link.href} href={link.href} className="group relative pb-1 text-charcoal/90 whitespace-nowrap">
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`group relative whitespace-nowrap pb-1 transition ${
+                  link.highlight && !active
+                    ? "font-medium text-gold"
+                    : "text-charcoal/90"
+                }`}
+              >
                 {link.label}
+                {link.highlight && !active && (
+                  <span className="ml-1.5 inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                )}
                 <span
                   className={`absolute bottom-0 left-0 h-[1.5px] bg-gold transition-all duration-300 ${
                     active ? "w-full" : "w-0 group-hover:w-full"
