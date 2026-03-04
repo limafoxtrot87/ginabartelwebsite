@@ -38,7 +38,7 @@ export default function HomePage() {
         <FadeInSection>
           <div className="overflow-hidden rounded-3xl border border-charcoal/10 bg-white shadow-luxury">
             <div className="grid md:grid-cols-[1fr_1.1fr]">
-              <div className="relative h-64 md:h-auto">
+              <div className="relative h-64 md:h-full md:min-h-[380px]">
                 <Image
                   src={currentListings[0].heroImage}
                   alt={currentListings[0].address}
