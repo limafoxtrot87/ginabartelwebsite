@@ -1,44 +1,100 @@
-import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { soldHomes } from "@/data/soldHomes";
 
-type SoldHomeDetailProps = {
-  params: { slug: string };
-};
+type Props = { params: { slug: string } };
 
 export function generateStaticParams() {
   return soldHomes.map((home) => ({ slug: home.slug }));
 }
 
-export default function SoldHomeDetailPage({ params }: SoldHomeDetailProps) {
+export default function SoldHomeDetailPage({ params }: Props) {
   const home = soldHomes.find((entry) => entry.slug === params.slug);
-
-  if (!home) {
-    notFound();
-  }
+  if (!home) notFound();
 
   return (
-    <div className="grid gap-8 pb-10 md:grid-cols-[1.3fr_1fr]">
-      <div className="overflow-hidden rounded-2xl border border-charcoal/10 bg-white shadow-soft">
-        <Image
-          src={home.image}
-          alt={home.address}
-          width={1600}
-          height={1000}
-          className="h-[460px] w-full object-cover"
-        />
+    <div className="space-y-6 pb-10">
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-xs text-charcoal/50">
+        <Link href="/sold-homes" className="hover:text-gold transition-colors">Sold Homes</Link>
+        <span>›</span>
+        <span className="text-charcoal/80">{home.address}</span>
       </div>
-      <div className="rounded-2xl border border-charcoal/10 bg-white p-6 shadow-soft">
-        <p className="text-xs uppercase tracking-[0.14em] text-gold">Property Detail</p>
-        <h1 className="mt-2 font-serif text-3xl">{home.address}</h1>
-        <p className="mt-1 text-charcoal/75">{home.city}</p>
-        <div className="mt-5 space-y-2 text-sm text-charcoal/80">
-          {home.price ? <p><span className="font-medium text-charcoal">Sold Price:</span> {home.price}</p> : null}
-          {home.saleDate ? <p><span className="font-medium text-charcoal">Sale Date:</span> {home.saleDate}</p> : null}
-          {home.daysOnMarket ? <p><span className="font-medium text-charcoal">Days on Market:</span> {home.daysOnMarket}</p> : null}
-          {home.beds ? <p><span className="font-medium text-charcoal">Beds:</span> {home.beds}</p> : null}
-          {home.baths ? <p><span className="font-medium text-charcoal">Baths:</span> {home.baths}</p> : null}
-          <p><span className="font-medium text-charcoal">Description:</span> {home.description}</p>
+
+      <div className="grid gap-6 md:grid-cols-[1fr_340px] md:items-start">
+        {/* Main details */}
+        <div className="space-y-5">
+          <div className="rounded-2xl border border-charcoal/10 bg-white p-7 shadow-soft">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">Sold</span>
+                <p className="mt-3 font-serif text-3xl text-charcoal">{home.soldPrice}</p>
+                <p className="mt-1 text-base font-medium text-charcoal/80">{home.address}</p>
+                <p className="text-sm text-charcoal/55">{home.city}, {home.state} {home.zip}</p>
+              </div>
+              <span className="rounded-full bg-charcoal/6 px-3 py-1 text-sm text-charcoal/55">{home.type}</span>
+            </div>
+
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {[
+                { label: "Beds", value: home.beds },
+                { label: "Baths", value: home.baths },
+                { label: "Sqft", value: home.sqft.toLocaleString() },
+                { label: "Built", value: home.yearBuilt ?? "—" },
+              ].map((s) => (
+                <div key={s.label} className="rounded-xl bg-charcoal/4 p-4 text-center">
+                  <p className="font-serif text-2xl text-charcoal">{s.value}</p>
+                  <p className="text-xs text-charcoal/50">{s.label}</p>
+                </div>
+              ))}
+            </div>
+
+            {(home.lotSize) && (
+              <p className="mt-4 text-sm text-charcoal/55">Lot size: {home.lotSize}</p>
+            )}
+
+            <p className="mt-5 text-sm leading-relaxed text-charcoal/75">{home.description}</p>
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <div className="space-y-4">
+          <div className="rounded-2xl border border-charcoal/10 bg-white p-6 shadow-luxury">
+            <p className="text-xs uppercase tracking-[0.12em] text-gold">Represented by</p>
+            <p className="mt-1 font-serif text-lg text-charcoal">Gina Bartel</p>
+            <p className="text-sm text-charcoal/60">Florida Executive Realty</p>
+
+            <div className="mt-5 space-y-2.5">
+              <Link
+                href="/contact"
+                className="flex w-full items-center justify-center rounded-full bg-charcoal px-5 py-3 text-sm text-white transition hover:bg-charcoal/90"
+              >
+                Work with Gina
+              </Link>
+              <a
+                href="https://www.zillow.com/profile/ginambartel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full items-center justify-center rounded-full border border-charcoal/20 px-5 py-2.5 text-sm transition hover:border-gold hover:text-gold"
+              >
+                Full History on Zillow ↗
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-charcoal/10 bg-white p-5 shadow-soft text-center">
+            <p className="text-sm text-charcoal/70">
+              To see a complete list of Gina&apos;s listings and full details on every transaction, visit her Zillow profile.
+            </p>
+            <a
+              href="https://www.zillow.com/profile/ginambartel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block text-sm text-gold hover:underline"
+            >
+              Visit Zillow Profile →
+            </a>
+          </div>
         </div>
       </div>
     </div>

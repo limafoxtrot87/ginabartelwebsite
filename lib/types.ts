@@ -2,10 +2,18 @@ export type SoldHome = {
   slug: string;
   address: string;
   city: string;
-  image: string;
+  state: string;
+  zip: string;
+  image?: string;
+  soldPrice: string;
+  beds: number;
+  baths: number;
+  sqft: number;
+  type: string;
+  yearBuilt?: number;
+  lotSize?: string;
+  // legacy fields kept for carousel compatibility
   price?: string;
-  beds?: number;
-  baths?: number;
   description: string;
   saleDate?: string;
   daysOnMarket?: number;
