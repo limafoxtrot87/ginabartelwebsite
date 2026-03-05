@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { soldHomes } from "@/data/soldHomes";
@@ -16,19 +17,35 @@ export default function SoldHomeDetailPage({ params }: Props) {
     <div className="space-y-6 pb-10">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-charcoal/50">
-        <Link href="/sold-homes" className="hover:text-gold transition-colors">Sold Homes</Link>
+        <Link href="/sold-homes" className="hover:text-gold transition-colors">Recently Closed</Link>
         <span>›</span>
         <span className="text-charcoal/80">{home.address}</span>
       </div>
 
       <div className="grid gap-6 md:grid-cols-[1fr_340px] md:items-start">
-        {/* Main details */}
+        {/* Main */}
         <div className="space-y-5">
+          {/* Photo */}
+          {home.image && (
+            <div className="relative h-[400px] overflow-hidden rounded-2xl border border-charcoal/10 shadow-soft">
+              <Image
+                src={home.image}
+                alt={home.address}
+                fill
+                className="object-cover"
+                priority
+              />
+              <span className="absolute left-4 top-4 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 shadow-sm">
+                Sold
+              </span>
+            </div>
+          )}
+
+          {/* Details card */}
           <div className="rounded-2xl border border-charcoal/10 bg-white p-7 shadow-soft">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">Sold</span>
-                <p className="mt-3 font-serif text-3xl text-charcoal">{home.soldPrice}</p>
+                <p className="font-serif text-3xl text-charcoal">{home.soldPrice}</p>
                 <p className="mt-1 text-base font-medium text-charcoal/80">{home.address}</p>
                 <p className="text-sm text-charcoal/55">{home.city}, {home.state} {home.zip}</p>
               </div>
@@ -49,11 +66,10 @@ export default function SoldHomeDetailPage({ params }: Props) {
               ))}
             </div>
 
-            {(home.lotSize) && (
+            {home.lotSize && (
               <p className="mt-4 text-sm text-charcoal/55">Lot size: {home.lotSize}</p>
             )}
-
-            <p className="mt-5 text-sm leading-relaxed text-charcoal/75">{home.description}</p>
+            <p className="mt-4 text-sm leading-relaxed text-charcoal/75">{home.description}</p>
           </div>
         </div>
 
@@ -63,7 +79,6 @@ export default function SoldHomeDetailPage({ params }: Props) {
             <p className="text-xs uppercase tracking-[0.12em] text-gold">Represented by</p>
             <p className="mt-1 font-serif text-lg text-charcoal">Gina Bartel</p>
             <p className="text-sm text-charcoal/60">Florida Executive Realty</p>
-
             <div className="mt-5 space-y-2.5">
               <Link
                 href="/contact"

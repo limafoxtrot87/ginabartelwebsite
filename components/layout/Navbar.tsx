@@ -10,7 +10,7 @@ const links = [
   { href: "/military-families", label: "Military Families" },
   { href: "/awards", label: "Awards" },
   { href: "/service-areas", label: "Service Areas" },
-  { href: "/sold-homes", label: "Sold Homes" },
+  { href: "/sold-homes", label: "Recently Closed" },
   { href: "/neighborhoods", label: "Explore Tampa" },
   { href: "/contact", label: "Contact" }
 ];
