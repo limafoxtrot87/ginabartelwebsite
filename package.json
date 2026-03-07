@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update:summaries": "tsx scripts/updateNeighborhoodSummaries.ts"
+    "update:summaries": "tsx scripts/updateNeighborhoodSummaries.ts",
+    "validate:photos": "tsx scripts/validateServiceAreaPhotos.ts",
+    "prebuild": "npm run validate:photos"
   },
   "dependencies": {
     "framer-motion": "^11.11.9",
