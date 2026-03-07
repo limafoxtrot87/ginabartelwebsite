@@ -212,14 +212,14 @@ export const serviceAreas: ServiceArea[] = [
     schoolsRating: 8
   },
   {
-    slug: "clara-mel-city",
-    name: "Clara Mel City",
+    slug: "clair-mel-city",
+    name: "Clair Mel City",
     overview: "Centrally positioned residential area near East Tampa corridors and major access roads.",
     lifestyle: "Practical, location-driven living with quick in-city access.",
     amenities: ["Nearby retail", "Transit corridors", "Parks"],
     commute: "Strong central access to multiple Tampa work hubs.",
     market: "Median near $325k with buyer attention centering on renovated homes and value opportunities. One of the most affordable in-city options — strong for first-time buyers and investors.",
-    image: "/assets/areas/clara-mel-city.jpg",
+    image: "/assets/areas/clair-mel-city.jpg",
     pros: ["Central location", "Value opportunities", "Good access to urban corridors"],
     cons: ["Property condition varies", "Block-by-block differences are significant", "Limited luxury inventory"],
     medianPrice: "$325k",
