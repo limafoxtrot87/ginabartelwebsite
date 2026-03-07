@@ -160,7 +160,7 @@ export const serviceAreaDetails: Record<string, ServiceAreaDetail> = {
     militaryNotes: "Regularly considered by military families prioritizing schools and neighborhood stability.",
     weekendSpots: ["Golf club access", "Parks", "Family sports facilities", "Nearby dining"]
   },
-  "clara-mel-city": {
+  "clair-mel-city": {
     schools: "Buyers evaluate school options with nearby Tampa and charter alternatives.",
     housing: "Mixed-condition housing with value and renovation upside potential.",
     commute: "Central orientation provides quick directional flexibility across Tampa.",

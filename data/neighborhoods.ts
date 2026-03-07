@@ -152,8 +152,8 @@ export const neighborhoods: Neighborhood[] = [
     market: "Consistent buyer demand in well-maintained homes with updated systems."
   },
   {
-    slug: "clara-mel-city",
-    name: "Clara Mel City",
+    slug: "clair-mel-city",
+    name: "Clair Mel City",
     lat: 27.964,
     lng: -82.3838,
     overview: "Centrally positioned residential area near East Tampa corridors and major access roads.",
