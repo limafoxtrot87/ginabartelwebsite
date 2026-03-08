@@ -1,0 +1,16 @@
+{
+  "planPath": "docs/plans/2026-03-07-service-area-hero-images.md",
+  "tasks": [
+    {"id": 0, "subject": "Task 1: Fix slug clara-mel-city → clair-mel-city in serviceAreas.ts", "status": "pending"},
+    {"id": 1, "subject": "Task 2: Update all 17 image paths in serviceAreas.ts", "status": "pending", "blockedBy": [0]},
+    {"id": 2, "subject": "Task 3: Create 17 folders under public/photos/service_areas/", "status": "pending"},
+    {"id": 3, "subject": "Task 4: Install sharp", "status": "pending"},
+    {"id": 4, "subject": "Task 5: Write scripts/downloadServiceAreaPhotos.ts", "status": "pending", "blockedBy": [3]},
+    {"id": 5, "subject": "Task 6: Run the download script", "status": "pending", "blockedBy": [2, 4]},
+    {"id": 6, "subject": "Task 7: Write scripts/validateServiceAreaPhotos.ts", "status": "pending", "blockedBy": [1]},
+    {"id": 7, "subject": "Task 8: Wire validate:photos into package.json", "status": "pending", "blockedBy": [6]},
+    {"id": 8, "subject": "Task 9: Run validate:photos and confirm", "status": "pending", "blockedBy": [5, 7]},
+    {"id": 9, "subject": "Task 10: Run npm run build and confirm clean", "status": "pending", "blockedBy": [8]}
+  ],
+  "lastUpdated": "2026-03-07T00:00:00Z"
+}
