@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Gina Bartel | Tampa Bay Real Estate Agent & Realtor",
+  description:
+    "Meet Gina Bartel — Tampa Bay real estate agent with Florida Executive Realty. Chicago native, Florida expert. Serving 17 communities with a family-first approach since 2018.",
+};
 import { RotatingImage } from "@/components/shared/RotatingImage";
 import { FadeInSection } from "@/components/shared/FadeInSection";
 import { agentPhotos } from "@/data/agentPhotos";
@@ -29,7 +36,7 @@ export default function AboutPage() {
       <div className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-start">
         <FadeInSection className="space-y-5">
           <p className="text-xs uppercase tracking-[0.14em] text-gold">About Gina</p>
-          <h1 className="font-serif text-4xl">Hi, I&apos;m Gina</h1>
+          <h1 className="font-serif text-4xl">Tampa Bay Real Estate Agent — Gina Bartel</h1>
           <p className="text-charcoal/80">
             I&apos;m a Chicago native who traded Midwest winters for Florida sunshine in 2018, and I&apos;ve loved helping families
             build their next chapter in Tampa Bay ever since. From Fish Hawk and South Tampa to St. Petersburg and Lutz, I know

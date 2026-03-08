@@ -1,6 +1,39 @@
+import type { Metadata } from "next";
 import { FadeInSection } from "@/components/shared/FadeInSection";
 import { awardRecognitions } from "@/data/awards";
 import { clientReviews } from "@/data/reviews";
+
+export const metadata: Metadata = {
+  title: "5-Star Tampa Bay Realtor Reviews",
+  description:
+    "Gina Bartel holds a perfect 5.0 Zillow rating (2021–2025). Recognized for family relocation, local knowledge, and smooth closings across Tampa Bay.",
+};
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: clientReviews.map((review, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Review",
+      author: { "@type": "Person", name: review.reviewer },
+      datePublished: review.date,
+      reviewBody: review.summary,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: review.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      itemReviewed: {
+        "@type": "RealEstateAgent",
+        name: "Gina Bartel",
+        url: "https://ginabartelwebsite.vercel.app",
+      },
+    },
+  })),
+};
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -22,6 +55,11 @@ function StarRating({ rating }: { rating: number }) {
 export default function AwardsPage() {
   return (
     <div className="space-y-8 pb-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+      />
+
       <FadeInSection>
         <div>
           <p className="text-xs uppercase tracking-[0.14em] text-gold">Awards & Recognition</p>

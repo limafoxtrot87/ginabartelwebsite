@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Explore Tampa", href: "/neighborhoods" },
   { label: "Military Families", href: "/military-families" },
   { label: "Awards", href: "/awards" },
+  { label: "Market Updates", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 

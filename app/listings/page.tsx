@@ -1,7 +1,23 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInSection } from "@/components/shared/FadeInSection";
 import { currentListings } from "@/data/currentListings";
+
+export const metadata: Metadata = {
+  title: "Homes for Sale in Tampa Bay",
+  description:
+    "Browse active listings across Tampa Bay with Gina Bartel. Off-market opportunities available — call 708-781-8205 for early access before properties hit the MLS.",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelwebsite.vercel.app" },
+    { "@type": "ListItem", position: 2, name: "Listings", item: "https://ginabartelwebsite.vercel.app/listings" },
+  ],
+};
 
 const statusColors: Record<string, string> = {
   Active: "bg-emerald-50 text-emerald-700 border-emerald-200",
@@ -9,9 +25,47 @@ const statusColors: Record<string, string> = {
   "Coming Soon": "bg-blue-50 text-blue-700 border-blue-200",
 };
 
+function buildListingSchema(listing: typeof currentListings[0]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    name: `${listing.address}, ${listing.city}, ${listing.state}`,
+    description: listing.description.split("\n")[0],
+    url: `https://ginabartelwebsite.vercel.app/listings/${listing.slug}`,
+    image: `https://ginabartelwebsite.vercel.app${listing.heroImage}`,
+    offers: {
+      "@type": "Offer",
+      price: listing.priceRaw,
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+    numberOfRooms: listing.beds + listing.baths,
+    floorSize: { "@type": "QuantitativeValue", value: listing.sqft, unitCode: "FTK" },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: listing.address,
+      addressLocality: listing.city,
+      addressRegion: listing.state,
+      postalCode: listing.zip,
+      addressCountry: "US",
+    },
+  };
+}
+
 export default function ListingsPage() {
   return (
     <div className="space-y-10 pb-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {currentListings.map((listing) => (
+        <script
+          key={listing.slug}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildListingSchema(listing)) }}
+        />
+      ))}
       <FadeInSection>
         <div>
           <p className="text-xs uppercase tracking-[0.14em] text-gold">Active Listings</p>

@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+
+export const metadata: Metadata = {
+  title: "Tampa Bay Neighborhoods Guide | Fish Hawk, Riverview & More",
+  description:
+    "Explore Tampa Bay neighborhoods with Gina's interactive guide. Market data, school ratings, and lifestyle fit for 17 Hillsborough County communities.",
+};
 import summariesData from "@/data/neighborhoodSummaries.json";
 import { FadeInSection } from "@/components/shared/FadeInSection";
 import { neighborhoods } from "@/data/neighborhoods";

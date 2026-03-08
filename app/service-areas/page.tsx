@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInSection } from "@/components/shared/FadeInSection";
 import { serviceAreas } from "@/data/serviceAreas";
+
+export const metadata: Metadata = {
+  title: "Tampa Bay Real Estate Service Areas",
+  description:
+    "Gina Bartel serves 17 Tampa Bay communities: Fish Hawk, Riverview, Lithia, South Tampa, Apollo Beach, Brandon, and more. Find your neighborhood expert.",
+};
 
 function SchoolDots({ rating }: { rating: number }) {
   return (
@@ -16,13 +23,26 @@ function SchoolDots({ rating }: { rating: number }) {
   );
 }
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelwebsite.vercel.app" },
+    { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://ginabartelwebsite.vercel.app/service-areas" },
+  ],
+};
+
 export default function ServiceAreasPage() {
   return (
     <div className="space-y-8 pb-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <FadeInSection>
         <div>
           <p className="text-xs uppercase tracking-[0.14em] text-gold">Service Areas</p>
-          <h1 className="mt-2 font-serif text-4xl">Tampa Bay Area Readouts</h1>
+          <h1 className="mt-2 font-serif text-4xl">Tampa Bay Real Estate Service Areas</h1>
           <p className="mt-3 max-w-3xl text-charcoal/75">
             Explore local area profiles with lifestyle fit, market positioning, and practical pros/cons for each neighborhood.
           </p>

@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Tampa Bay Homes for Sale | Gina Bartel, Realtor",
+  description:
+    "Gina Bartel helps families find the right home in Tampa Bay. Serving Fish Hawk, Riverview, Lithia, Brandon & 13 more communities. Call 708-781-8205.",
+};
 import { CtaBand } from "@/components/home/CtaBand";
 import { Hero } from "@/components/home/Hero";
 import { ServiceAreasOverview } from "@/components/home/ServiceAreasOverview";

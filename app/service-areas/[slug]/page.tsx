@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,6 +13,15 @@ export function generateStaticParams() {
   return serviceAreas.map((area) => ({ slug: area.slug }));
 }
 
+export function generateMetadata({ params }: ServiceAreaDetailProps): Metadata {
+  const area = serviceAreas.find((entry) => entry.slug === params.slug);
+  if (!area) return {};
+  return {
+    title: `${area.name} Real Estate & Homes for Sale`,
+    description: `${area.overview} Gina Bartel serves ${area.name} and 16 other Tampa Bay communities. Call 708-781-8205.`,
+  };
+}
+
 export default function ServiceAreaDetailPage({ params }: ServiceAreaDetailProps) {
   const area = serviceAreas.find((entry) => entry.slug === params.slug);
 
@@ -21,8 +31,22 @@ export default function ServiceAreaDetailPage({ params }: ServiceAreaDetailProps
 
   const detail = serviceAreaDetails[area.slug];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelwebsite.vercel.app" },
+      { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://ginabartelwebsite.vercel.app/service-areas" },
+      { "@type": "ListItem", position: 3, name: area.name, item: `https://ginabartelwebsite.vercel.app/service-areas/${area.slug}` },
+    ],
+  };
+
   return (
     <div className="space-y-8 pb-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="overflow-hidden rounded-3xl border border-charcoal/10 bg-white shadow-soft">
         <div className="relative h-64 md:h-80">
           <Image src={area.image} alt={`${area.name} overview`} fill className="object-cover" priority />

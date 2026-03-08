@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInSection } from "@/components/shared/FadeInSection";
 import { soldHomes } from "@/data/soldHomes";
+
+export const metadata: Metadata = {
+  title: "Recently Sold Homes Tampa Bay",
+  description:
+    "See Gina Bartel's recent Tampa Bay closings. Proven track record across Fish Hawk, Riverview, Lithia, and surrounding communities. Full history on Zillow.",
+};
 
 export default function SoldHomesPage() {
   return (
@@ -49,7 +56,7 @@ export default function SoldHomesPage() {
               <div className="relative h-52 overflow-hidden">
                 <Image
                   src={home.image!}
-                  alt={home.address}
+                  alt={`${home.address} — sold by Gina Bartel, ${home.city} FL real estate`}
                   fill
                   className="object-cover transition duration-500 group-hover:scale-[1.03]"
                 />

@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeInSection } from "@/components/shared/FadeInSection";
+
+export const metadata: Metadata = {
+  title: "VA Loans & Military Relocation Tampa Bay",
+  description:
+    "Tampa Bay real estate for military families. VA loan expertise, PCS relocation support, and MacDill AFB knowledge. Gina Bartel, Florida Executive Realty.",
+};
 import { RotatingImage } from "@/components/shared/RotatingImage";
 import { agentPhotos } from "@/data/agentPhotos";
 
@@ -26,9 +33,81 @@ const strengths = [
   }
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Does Gina Bartel work with VA loans in Tampa Bay?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Gina understands VA financing structure, appraisal realities, and offer strategy tailored to veteran and active-duty buyers purchasing homes near MacDill AFB and across Tampa Bay."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Can Gina help with a PCS relocation to Tampa Bay?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Gina helps military families navigate PCS relocations with clear communication, fast execution, remote tours, and neighborhood matching based on commute to MacDill AFB, schools, and family routine."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What neighborhoods are close to MacDill AFB?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Gina serves 17 Tampa Bay communities including South Tampa, Tampa, Apollo Beach, Riverview, and Lithia — all with varying commute distances to MacDill AFB. She provides commute-specific guidance for each area."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Does Gina know about assumable VA rate homes in Tampa Bay?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Gina actively tracks and evaluates assumable VA mortgage opportunities and helps clients assess when those terms create genuine value compared to current market rates."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What can military families expect when working with Gina Bartel?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Fast response windows for high-tempo relocation timelines, virtual and in-person showing strategy built around PCS realities, neighborhood matching based on commute and schools, and clear guidance on VA eligibility-sensitive decisions."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Does Gina have personal experience with military families?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. As the wife of an OEF/OIF Marine veteran, Gina brings personal understanding and practical empathy to military-family priorities when buying or selling a home in Tampa Bay."
+      }
+    }
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelwebsite.vercel.app" },
+    { "@type": "ListItem", position: 2, name: "Military Families", item: "https://ginabartelwebsite.vercel.app/military-families" },
+  ],
+};
+
 export default function MilitaryFamiliesPage() {
   return (
     <div className="space-y-8 pb-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <FadeInSection>
         <section className="grid gap-6 rounded-3xl border border-charcoal/10 bg-white p-7 shadow-soft md:grid-cols-[1.2fr_0.8fr] md:p-10">
           <div>
