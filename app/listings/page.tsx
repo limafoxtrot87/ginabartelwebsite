@@ -14,8 +14,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelwebsite.vercel.app" },
-    { "@type": "ListItem", position: 2, name: "Listings", item: "https://ginabartelwebsite.vercel.app/listings" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelrealestate.com" },
+    { "@type": "ListItem", position: 2, name: "Listings", item: "https://ginabartelrealestate.com/listings" },
   ],
 };
 
@@ -31,8 +31,8 @@ function buildListingSchema(listing: typeof currentListings[0]) {
     "@type": "RealEstateListing",
     name: `${listing.address}, ${listing.city}, ${listing.state}`,
     description: listing.description.split("\n")[0],
-    url: `https://ginabartelwebsite.vercel.app/listings/${listing.slug}`,
-    image: `https://ginabartelwebsite.vercel.app${listing.heroImage}`,
+    url: `https://ginabartelrealestate.com/listings/${listing.slug}`,
+    image: `https://ginabartelrealestate.com${listing.heroImage}`,
     offers: {
       "@type": "Offer",
       price: listing.priceRaw,

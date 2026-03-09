@@ -29,7 +29,7 @@ const reviewSchema = {
       itemReviewed: {
         "@type": "RealEstateAgent",
         name: "Gina Bartel",
-        url: "https://ginabartelwebsite.vercel.app",
+        url: "https://ginabartelrealestate.com",
       },
     },
   })),

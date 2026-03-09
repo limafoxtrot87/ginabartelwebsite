@@ -34,7 +34,7 @@ const agentSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "Gina Bartel",
-  url: "https://ginabartelwebsite.vercel.app",
+  url: "https://ginabartelrealestate.com",
   areaServed: serviceAreas.map((area) => area.name),
   telephone: "708-781-8205",
   email: "Gina@FloridaExecutiveRealty.com",
@@ -65,7 +65,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Gina Bartel — Florida Executive Realty",
-  url: "https://ginabartelwebsite.vercel.app",
+  url: "https://ginabartelrealestate.com",
   telephone: "708-781-8205",
   email: "Gina@FloridaExecutiveRealty.com",
   address: {

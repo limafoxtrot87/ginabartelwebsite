@@ -27,8 +27,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelwebsite.vercel.app" },
-    { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://ginabartelwebsite.vercel.app/service-areas" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelrealestate.com" },
+    { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://ginabartelrealestate.com/service-areas" },
   ],
 };
 

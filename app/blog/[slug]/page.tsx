@@ -30,11 +30,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    url: `https://ginabartelwebsite.vercel.app/blog/${post.slug}`,
+    url: `https://ginabartelrealestate.com/blog/${post.slug}`,
     author: {
       "@type": "Person",
       name: "Gina Bartel",
-      url: "https://ginabartelwebsite.vercel.app/about",
+      url: "https://ginabartelrealestate.com/about",
     },
     publisher: {
       "@type": "Organization",
@@ -47,9 +47,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelwebsite.vercel.app" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://ginabartelwebsite.vercel.app/blog" },
-      { "@type": "ListItem", position: 3, name: post.title, item: `https://ginabartelwebsite.vercel.app/blog/${post.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelrealestate.com" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://ginabartelrealestate.com/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://ginabartelrealestate.com/blog/${post.slug}` },
     ],
   };
 

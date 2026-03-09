@@ -92,8 +92,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelwebsite.vercel.app" },
-    { "@type": "ListItem", position: 2, name: "Military Families", item: "https://ginabartelwebsite.vercel.app/military-families" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://ginabartelrealestate.com" },
+    { "@type": "ListItem", position: 2, name: "Military Families", item: "https://ginabartelrealestate.com/military-families" },
   ],
 };
 

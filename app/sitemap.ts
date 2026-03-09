@@ -4,7 +4,7 @@ import { currentListings } from "@/data/currentListings";
 import { soldHomes } from "@/data/soldHomes";
 import { blogPosts } from "@/data/blogPosts";
 
-const BASE_URL = "https://ginabartelwebsite.vercel.app";
+const BASE_URL = "https://ginabartelrealestate.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

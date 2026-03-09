@@ -19,18 +19,18 @@ const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
   name: "Tampa Bay Real Estate Insights — Gina Bartel",
-  url: "https://ginabartelwebsite.vercel.app/blog",
+  url: "https://ginabartelrealestate.com/blog",
   author: {
     "@type": "Person",
     name: "Gina Bartel",
-    url: "https://ginabartelwebsite.vercel.app/about",
+    url: "https://ginabartelrealestate.com/about",
   },
   blogPost: blogPosts.map((post) => ({
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    url: `https://ginabartelwebsite.vercel.app/blog/${post.slug}`,
+    url: `https://ginabartelrealestate.com/blog/${post.slug}`,
     author: { "@type": "Person", name: "Gina Bartel" },
   })),
 };
