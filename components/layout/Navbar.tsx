@@ -12,6 +12,7 @@ const links = [
   { href: "/service-areas", label: "Service Areas" },
   { href: "/sold-homes", label: "Recently Closed" },
   { href: "/neighborhoods", label: "Explore Tampa" },
+  { href: "/blog", label: "Market Updates" },
   { href: "/contact", label: "Contact" }
 ];
 
